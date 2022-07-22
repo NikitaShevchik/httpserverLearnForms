@@ -87,18 +87,25 @@ let arr = [
     'user1', 'user2', 'user3'
 ];
 
+// export default {
+//     '/handler/': function ({ get }) {
+//         try {
+//             if (arr[get.key - 1] != undefined) {
+//                 return arr[get.key - 1];
+//             } else {
+//                 throw { name: 'noUserFound', message: 'User not found' }
+//             }
+//         } catch (error) {
+//             if (error.name === 'noUserFound') {
+//                 return error.message
+//             }
+//         }
+//     }
+// }
+
+
 export default {
-    '/handler/': function ({ get }) {
-        try {
-            if (arr[get.key - 1] != undefined) {
-                return arr[get.key - 1];
-            } else {
-                throw { name: 'noUserFound', message: 'User not found' }
-            }
-        } catch (error) {
-            if (error.name === 'noUserFound') {
-                return error.message
-            }
-        }
+    '/handler/': function ({ post }) {
+        return `Hello message, ${post.test1}! Form sent!`
     }
 }
