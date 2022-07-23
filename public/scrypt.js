@@ -116,4 +116,25 @@ function formDataFunction() {
     })
 }
 /*-----------------------------Работа с URL в JavaScript------------------------------*/
+let path = 'http://site.ru:3000/dir/eee/page.html#show?a=1&b=2&c=3';
+let url = new URL(path)
+console.log(url)
+// Протокол
+console.log(url.protocol)
+// Хост
+console.log(url.host)
+// Имя хоста
+console.log(url.hostname)
+// Порт
+console.log(url.port)
+// Путь
+console.log(url.pathname)
+// Хеш
+console.log(url.hash)
+// GET параметры
+let ress = url.search;
+console.log(ress); // выведет 'a=1&b=2&c=3'
 
+
+let resu = url.searchParams;
+console.log(resu); // выведет объект класса URLSearchParams
