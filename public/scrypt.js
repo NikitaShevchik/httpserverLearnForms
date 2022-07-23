@@ -1,20 +1,18 @@
 "use strict"
-let form = document.querySelector('form');
-let button = document.querySelector('button');
+// let form = document.querySelector('form');
+// let button = document.querySelector('button');
 
-button.addEventListener('click', function (event) {
-    let email = form.querySelector('input[name="email"]').value;
-    var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
-    if (reg.test(email)) {
-        form.submit()
-    } else {
-        event.preventDefault();
-    }
-})
+// button.addEventListener('click', function (event) {
+//     let email = form.querySelector('input[name="email"]').value;
+//     var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+//     if (reg.test(email)) {
+//         form.submit()
+//     } else {
+//         event.preventDefault();
+//     }
+// })
 
-
-
-// Работа с URLSearchParams в JavaScript
+/*-----------------------------Работа с URLSearchParams в JavaScript------------------------------*/
 
 let paramsString = 'a=1&b=2&c=3';
 let searchParams = new URLSearchParams(paramsString);
@@ -82,3 +80,40 @@ console.log(result2)
 searchParamsPractice.set('test1', 'nikitos')
 let result3 = searchParamsPractice.toString()
 console.log(result3)
+
+
+/*-----------------------------Работа с FormData в JavaScript------------------------------*/
+function formDataFunction() {
+    let form = document.querySelector('form');
+    let button = document.querySelector('button');
+    // Дана форма с тремя инпутами. Дана также кнопка. 
+    // По нажатию на кнопку получите данные формы в виде объекта FormData.
+
+    button.addEventListener('click', function (e) {
+        let formData = new FormData(form)
+        console.log(formData)
+        console.log(Array.from(formData));
+        // Модифицируйте предыдущую задачу. 
+        // После получения данных формы добавьте в эти данные еще одну пару 
+        // ключ-значение и удалите одну из существующих пар.
+
+        formData.append('test4', 'NIKITA')
+        formData.delete('test1');
+
+        // Итераторы
+        for (let k of formData.keys()) {
+            console.log(k)
+        }
+        for (let v of formData.values()) {
+            console.log(v)
+        }
+        for (let j of formData.entries()) {
+            console.log(j)
+        }
+
+        console.log(Array.from(formData));
+        e.preventDefault()
+    })
+}
+/*-----------------------------Работа с URL в JavaScript------------------------------*/
+
